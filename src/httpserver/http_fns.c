@@ -245,7 +245,7 @@ int http_fn_index(http_request_t* request) {
 			DRV_Toggler_ProcessChanges(request);
 		}
 #endif
-#if defined(PLATFORM_BEKEN) || defined(WINDOWS)
+#if defined(PLATFORM_BEKEN) || defined(WINDOWS) || defined(PLATFORM_LN882H)
 		if (DRV_IsRunning("httpButtons")) {
 			DRV_HTTPButtons_ProcessChanges(request);
 		}
@@ -777,7 +777,7 @@ int http_fn_index(http_request_t* request) {
 		DRV_Toggler_AddToHtmlPage(request);
 	}
 #endif
-#if defined(PLATFORM_BEKEN) || defined(WINDOWS)
+#if defined(PLATFORM_BEKEN) || defined(WINDOWS) || defined(PLATFORM_LN882H)
 	if (DRV_IsRunning("httpButtons")) {
 		DRV_HTTPButtons_AddToHtmlPage(request);
 	}

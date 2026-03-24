@@ -554,7 +554,12 @@ void Main_OnEverySecond()
 #if PLATFORM_BK7231T
 		g_wifi_temperature = 2.21f * (temperature / 25.0f) - 65.91f;
 #else
-		ADDLOG_DEBUG(LOG_FEATURE_GENERAL, "raw temp = %f", temperature);
+		ADDLOG_DEBUG(LOG_FEATURE_GENERAL, "BK7231N calc = %f", (-0.38f * temperature) + 156.0f);
+		ADDLOG_DEBUG(LOG_FEATURE_GENERAL, "BK7238/BK7252N calc = %f", (-0.4f * temperature) + 131.0f);
+		ADDLOG_DEBUG(LOG_FEATURE_GENERAL, "Other BEKEN_NEW calc = %f", temperature * 0.128f);
+		ADDLOG_DEBUG(LOG_FEATURE_GENERAL, "BK7231T calc = %f", 2.21f * (temperature / 25.0f) - 65.91f);
+		ADDLOG_DEBUG(LOG_FEATURE_GENERAL, "Other platform calc = %f", (-0.457f * temperature) + 188.474f);
+		
 		g_wifi_temperature = (-0.457f * temperature) + 188.474f;
 #endif
 #elif PLATFORM_BL602
